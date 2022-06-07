@@ -12,21 +12,27 @@
 	font-style: normal;
 	font-display: swap;
 }
-// vars
+// color vars
 $dark: hsla(0, 0%, 7%, 1);
+$dark-translucent: hsla(0, 0%, 7%, 0.5);
 $primary: hsla(21, 50%, 79%, 1);
+$white: hsla(0, 0%, 100%, 1);
+// font vars
+$paragraph: 700 42px/50px 'Roboto', sans-serif;
+$paragraph-sm: 700 25px/30px 'Roboto', sans-serif;
+// indent vars
+$paragraph-indent: 24px;
+$paragraph-indent-sm: 15px;
 // default styles for all elements
 * {
 	padding: 0;
 	margin: 0;
 	color: $dark;
 	box-sizing: border-box;
-	outline: none;
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	line-height: 24px;
-	outline: 0;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: hsla(0, 0%, 0%, 1);
 	-webkit-tap-highlight-color: transparent;
 }
 // some default styles
@@ -38,8 +44,172 @@ html {
 	-ms-text-size-adjust: 100%;
 	scroll-behavior: smooth;
 }
+button {
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: .3s;
+    background: none;
+
+    &.primary-btn {
+        font-weight: 700;
+        line-height: 16px;
+        color: $white;
+        background: $primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 40px;
+        border-radius: 32px;
+
+        &:hover {
+            background: transparent;
+            color: $primary;
+            border-color: $primary;
+        }
+    }
+}
 .wrapper {
 	width: 100%;
 	max-width: 1440px;
 	margin: 0 auto;
+}
+.paragraph {
+    font: $paragraph;
+    margin-bottom: $paragraph-indent;
+}
+.text {
+    font-weight: 300;
+}
+// main styles
+.first-section {
+    margin-top: 96px;
+
+    .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 95px;
+
+        img {
+            width: 100%;
+            max-width: 505px;
+            height: 330px;
+            object-fit: cover;
+        }
+
+        .text-box {
+            max-width: 380px;
+
+            p {
+                margin-bottom: 32px;
+            }
+        }
+    }
+}
+.window-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $dark-translucent;
+    z-index: 10;
+
+    .window-body {
+        width: 100%;
+        max-width: 920px;
+        background: $white;
+        padding: 56px 95px;
+        position: relative;
+
+        .window-title {
+            margin-bottom: $paragraph-indent;
+
+            button {
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 40px;
+                right: 40px;
+
+                svg path {
+                    transition: .3s;
+                }
+                &:hover svg path {
+                    stroke: $primary;
+                }
+            }
+        }
+        .window-content {
+
+            p {
+                font-weight: 300;
+
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1224px) {
+	.wrapper {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+    .window-background {
+        padding: 50px 20px;
+    }
+}
+@media screen and (max-width: 1019px) {
+    .first-section .box {
+        img {
+            margin-bottom: $paragraph-indent-sm;
+        }
+        .text-box {
+            max-width: 505px;
+        }
+    }
+}
+@media screen and (max-width: 578px) {
+    .wrapper {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+    .paragraph {
+        font: $paragraph-sm;
+        margin-bottom: $paragraph-indent-sm;
+    }
+    .first-section .box .text-box {
+
+        p {
+            margin-bottom: 25px;
+        }
+    }
+    .window-background {
+        padding: 50px 10px;
+
+        .window-body {
+            padding: 25px;
+
+            .window-title {
+                margin-bottom: $paragraph-indent-sm;
+
+                h2 {
+                    margin-bottom: 0;
+                }
+                button {
+                    top: 20px;
+                    right: 20px;
+                }
+            }
+        }
+    }
 }
