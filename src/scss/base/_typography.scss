@@ -1,17 +1,18 @@
-@font-face {
-  font-family: "Roboto";
-  src: url("./src/fonts/Roboto-Light.woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Roboto";
-  src: url("./src/fonts/Roboto-Bold.woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+// @font-face {
+//   font-family: "Roboto";
+//   src: url("./src/fonts/Roboto-Light.woff2");
+//   font-weight: 300;
+//   font-style: normal;
+//   font-display: swap;
+// }
+// @font-face {
+//   font-family: "Roboto";
+//   src: url("./src/fonts/Roboto-Bold.woff2");
+//   font-weight: 700;
+//   font-style: normal;
+//   font-display: swap;
+// }
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
 .paragraph {
   font: $paragraph;
   margin-bottom: $paragraph-indent;
