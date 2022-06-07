@@ -1,7 +1,7 @@
 const popupBtn=document.querySelector(".first-section .primary-btn"),popupWin=document.querySelector(".window-background"),closeBtn=popupWin.querySelector(".close-btn"),resetBtn=popupWin.querySelector(".reset-counter");let textTimes=popupWin.querySelector(".click-times");const initCount=sessionStorage.getItem("myCount"),apiUrl="https://jsonplaceholder.typicode.com/users",table=document.querySelector(".additional-task table"),loader=document.querySelector(".loader");popupBtn.addEventListener("click",()=>{popupWin.style.display="flex","undefined"!=typeof Storage&&(localStorage.clickCount?localStorage.clickCount=Number(localStorage.clickCount)+1:localStorage.clickCount=1,textTimes.innerText=localStorage.clickCount+" times"),5<localStorage.clickCount&&(resetBtn.style.display="flex",resetBtn.addEventListener("click",function(){localStorage.clickCount=0,textTimes.innerText=localStorage.clickCount+" times",this.style.display="none"})),async function(){const e=await fetch(apiUrl),t=await e.json();e?loader.style.display="none":loader.style.display="flex",function(e){e.forEach(e=>{var{name:e,email:t,address:o,phone:n,company:l}=e;const c=document.createElement("tr");c.innerHTML=`
-            <td>${e}</td>
-            <td>${t}</td>
-            <td>${o.city}, ${o.street}, ${o.suite}</td>
-            <td>${n}</td>
-            <td>${l.name}</td>
-        `,table.appendChild(c)})}(t)}()}),popupWin.addEventListener("click",function(e){this.querySelector(".window-body").contains(e.target)||(this.style.display="none")}),closeBtn.addEventListener("click",()=>popupWin.style.display="none");
+                <td>${e}</td>
+                <td>${t}</td>
+                <td>${o.city}, ${o.street}, ${o.suite}</td>
+                <td>${n}</td>
+                <td>${l.name}</td>
+            `,table.appendChild(c)})}(t)}()}),popupWin.addEventListener("click",function(e){this.querySelector(".window-body").contains(e.target)||(this.style.display="none")}),closeBtn.addEventListener("click",()=>popupWin.style.display="none");

@@ -50,15 +50,13 @@ popupBtn.addEventListener('click', () => {
         data.forEach((item) => {
             const { name, email, address, phone, company } = item;
             const dataEl = document.createElement("tr");
-
             dataEl.innerHTML = `
-            <td>${name}</td>
-            <td>${email}</td>
-            <td>${address.city}, ${address.street}, ${address.suite}</td>
-            <td>${phone}</td>
-            <td>${company.name}</td>
-        `;
-
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>${address.city}, ${address.street}, ${address.suite}</td>
+                <td>${phone}</td>
+                <td>${company.name}</td>
+            `;
             table.appendChild(dataEl);
         });
     }
