@@ -1,7 +1,7 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 
 const sourcemaps = require('gulp-sourcemaps');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
@@ -10,12 +10,12 @@ const cssnano = require('cssnano');
 var replace = require('gulp-replace');
 
 // File paths
-const files = { 
+const files = {
     scssPath: 'src/scss/**/*.scss',
     jsPath: 'src/js/**/*.js'
 };
 
-function scssTask(){    
+function scssTask(){
     return src(files.scssPath)
         .pipe(sourcemaps.init()) // initialize sourcemaps first
         .pipe(sass([])) // compile SCSS to CSS
@@ -43,12 +43,12 @@ function cacheBustTask(){
 }
 
 function watchTask(){
-    watch([files.scssPath, files.jsPath], 
-        parallel(scssTask, jsTask));    
+    watch([files.scssPath, files.jsPath],
+        parallel(scssTask, jsTask));
 }
 
 exports.default = series(
-    parallel(scssTask, jsTask), 
+    parallel(scssTask, jsTask),
     cacheBustTask,
     watchTask
 );
