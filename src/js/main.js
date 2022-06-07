@@ -57,7 +57,7 @@ popupBtn.addEventListener('click', () => {
                 <td>${phone}</td>
                 <td>${company.name}</td>
             `;
-            table.appendChild(dataEl);
+            table.querySelector('tbody').appendChild(dataEl);
         });
     }
 });
