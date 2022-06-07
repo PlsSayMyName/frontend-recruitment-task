@@ -1,0 +1,44 @@
+.first-section {
+  margin-top: 96px;
+
+  .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 95px;
+
+    img {
+      width: 100%;
+      max-width: 505px;
+      height: 330px;
+      object-fit: cover;
+    }
+
+    .text-box {
+      max-width: 380px;
+
+      p {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1019px) {
+  .first-section .box {
+    img {
+      margin-bottom: $paragraph-indent-sm;
+    }
+    .text-box {
+      max-width: 505px;
+    }
+  }
+}
+@media screen and (max-width: 578px) {
+  .first-section .box .text-box {
+    p {
+      margin-bottom: 25px;
+    }
+  }
+}

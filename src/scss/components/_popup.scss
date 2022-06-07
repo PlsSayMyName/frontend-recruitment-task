@@ -1,0 +1,82 @@
+.window-background {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $dark-translucent;
+  z-index: 10;
+
+  .window-body {
+    width: 100%;
+    max-width: 920px;
+    background: $white;
+    padding: 56px 95px;
+    position: relative;
+    max-height: 500px;
+    overflow-y: scroll;
+
+    .window-title {
+      margin-bottom: $paragraph-indent;
+
+      button {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+
+        svg path {
+          transition: 0.3s;
+        }
+        &:hover svg path {
+          stroke: $primary;
+        }
+      }
+    }
+    .window-content {
+      button {
+        display: none;
+        margin: $paragraph-indent 0;
+      }
+      .additional-task {
+        margin-top: $paragraph-indent;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1224px) {
+  .window-background {
+    padding: 50px 20px;
+  }
+}
+@media screen and (max-width: 578px) {
+  .window-background {
+    padding: 50px 10px;
+
+    .window-body {
+      padding: 25px;
+
+      .window-title {
+        margin-bottom: $paragraph-indent-sm;
+
+        h2 {
+          margin-bottom: 0;
+        }
+        button {
+          top: 20px;
+          right: 20px;
+        }
+      }
+      .window-content button {
+        margin-top: $paragraph-indent-sm 0;
+      }
+    }
+  }
+}
