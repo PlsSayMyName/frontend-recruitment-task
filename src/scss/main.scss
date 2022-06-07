@@ -1,9 +1,9 @@
 @font-face {
-    font-family: "Roboto";
-    src: url("/src/fonts/Roboto-Light.woff2");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Roboto";
+  src: url("/src/fonts/Roboto-Light.woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Roboto";
@@ -85,7 +85,56 @@ button {
 .text {
   font-weight: 300;
 }
-
+table,
+td,
+th {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid $dark;
+}
+.loader {
+  display: flex;
+  animation: animate 1.5s linear infinite;
+  clip: rect(0, 80px, 80px, 40px);
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  left: calc(50% - 40px);
+  top: calc(50% - 40px);
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(220deg);
+  }
+}
+.loader:after {
+  animation: animate2 1.5s ease-in-out infinite;
+  clip: rect(0, 80px, 80px, 40px);
+  content: "";
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  position: absolute;
+}
+@keyframes animate2 {
+  0% {
+    box-shadow: inset $primary 0 0 0 17px;
+    transform: rotate(-140deg);
+  }
+  50% {
+    box-shadow: inset $primary 0 0 0 2px;
+  }
+  100% {
+    box-shadow: inset $primary 0 0 0 17px;
+    transform: rotate(140deg);
+  }
+}
 // main styles
 .first-section {
   margin-top: 96px;
@@ -131,6 +180,8 @@ button {
     background: $white;
     padding: 56px 95px;
     position: relative;
+    max-height: 500px;
+    overflow-y: scroll;
 
     .window-title {
       margin-bottom: $paragraph-indent;
@@ -163,6 +214,9 @@ button {
       }
       button {
         display: none;
+        margin: $paragraph-indent 0;
+      }
+      .additional-task {
         margin-top: $paragraph-indent;
       }
     }
@@ -219,7 +273,7 @@ button {
         }
       }
       .window-content button {
-        margin-top: $paragraph-indent-sm;
+        margin-top: $paragraph-indent-sm 0;
       }
     }
   }
