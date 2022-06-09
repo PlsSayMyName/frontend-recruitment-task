@@ -31,9 +31,9 @@ popupBtn.addEventListener('click', () => {
             this.style.display = 'none';
         });
     }
-
-    // additional task
-    getData();
+});
+popupBtn.addEventListener('click', once);
+function once() {
     async function getData() {
         const response = await fetch(apiUrl);
         const data = await response.json();
@@ -60,7 +60,10 @@ popupBtn.addEventListener('click', () => {
             table.querySelector('tbody').appendChild(dataEl);
         });
     }
-});
+    getData();
+    popupBtn.removeEventListener("click", once)
+}
+// additional task
 // close popup
 popupWin.addEventListener('click', function (e) {
     this.querySelector('.window-body').contains(e.target) || (this.style.display = 'none');
